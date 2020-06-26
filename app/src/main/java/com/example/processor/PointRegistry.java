@@ -1,6 +1,8 @@
-package com.example.hustmap;
+package com.example.processor;
 
 import android.util.Log;
+
+import com.example.hustmap.MainActivity;
 
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
@@ -28,7 +30,7 @@ public class PointRegistry {
                 .writeTimeout(60, TimeUnit.MILLISECONDS)
                 .build();
         
-        HttpUrl url = HttpUrl.parse("http://192.168.43.230:8080/HustMapServer/rest/connect/queryPoint").newBuilder()
+        HttpUrl url = HttpUrl.parse(MainActivity.host + "rest/connect/queryPoint").newBuilder()
                 .addQueryParameter("q", query)
                 .build();
 
